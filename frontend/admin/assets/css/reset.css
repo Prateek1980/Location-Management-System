@@ -1,0 +1,69 @@
+/* Page background */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Centered card */
+.login-box {
+    width: 400px;
+    margin: 120px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Heading */
+.login-box h2 {
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+/* Inputs */
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background: #f9fafb;
+}
+
+.login-box input:focus {
+    border-color: #3b82f6;
+}
+
+/* Button */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #3b82f6;     
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #2563eb;
+}
+
+/* Message */
+#msg {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 13px;
+}

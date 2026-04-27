@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tracking Map UI</title>
+
+    <!-- LEAFLET CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+
+<body>
+    <!-- TOP NAVBAR -->
+    <header class="top-navbar">
+
+
+        <!-- LEFT SIDE: SEARCH -->
+        <div class="nav-left">
+            <input class="search-input" type="text" placeholder="Search location..." />
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+
+        <!-- RIGHT SIDE: LAYER TOGGLE -->
+        <div class="nav-right">
+            <button class="layer-btn" onclick="toggleLayerPanel()">Layers</button>
+            <button class="category-btn" onclick="toggleCategoryPanel()">Categories</button>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT: MAP -->
+    <main class="map-wrapper">
+        <div id="map"></div>
+    </main>
+
+
+    <!-- LAYER TOGGLE PANEL -->
+    <div id="layerPanel" class="category-panel">
+        <button onclick="showSatelliteLayer()">Satellite</button>
+        <button onclick="showRoadLayer()">Indian Road</button>
+    </div>
+
+
+    <!-- CATEGORY PANEL -->
+    <div id="categoryPanel" class="layer-panel">
+        <h4>Categories</h4>
+    </div>
+
+
+
+    <!-- CATEGORY FILTERS -->
+    <div id="categoryFilters"></div>
+
+
+    <!-- BOTTOM NAVBAR -->
+    <nav class="bottom-navbar">
+        <h3>THIS IS BOTTOM NAV BAR</h3>
+    </nav>
+
+
+    <!-- LEAFLET JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+
+    <script src="../assets/js/map.js"></script>
+
+</body>
+
+</html>

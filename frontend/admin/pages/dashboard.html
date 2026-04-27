@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+
+            <button class="sidebar-btn" onclick="showLocations()">Locations</button>
+            <button class="sidebar-btn" onclick="showCategories()">Categories</button>
+
+
+        </aside>
+
+
+        <!-- MAIN AREA -->
+        <div class="main-area">
+
+            <!-- HEADER -->
+            <header class="admin-header">
+
+                <div class="header-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+                    <h1>Location Management Dashboard</h1>
+                </div>
+
+                <div class="header-right">
+                    <button onclick="goHome()" class="home-btn">Home</button>
+                    <button onclick="openLogoutModal()" class="logout-btn">Logout</button>
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT WRAPPER -->
+            <div class="content-wrapper">
+
+                <!-- ADD LOCATION SECTION -->
+                <section id="addSection" class="card">
+
+                    <h2>Add New Location</h2>
+
+                    <div class="form-row">
+                        <input id="locName" placeholder="Location Name" />
+                        <input id="lat" type="number" step="0.000001" min="-90" max="90" placeholder="Latitude">
+                        <input id="lon" type="number" step="0.000001" min="-180" max="180" placeholder="Longitude">
+                        <select id="categorySelect"></select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button onclick="addLocation()" class="save-btn">Save</button>
+                        <button type="button" onclick="clearLocationForm()" class="clear-btn">Clear</button>
+                    </div>
+
+                    <!-- JSON IMPORT SECTION -->
+                    <hr class="card-seperator">
+                    <h2>Import Locations from JSON</h2>
+
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">
+                        Upload a JSON file with an array of locations.
+                        <a href="../assets/data/sample-locations.json" target="_blank"
+                            style="color: #2563eb; text-decoration: none;">View sample format</a>
+                    </p>
+
+                    <div>
+                        <input class="file_input" type="file" id="jsonFile" accept=".json"
+                            placeholder="Select JSON file">
+                    </div>
+
+                    <div class="form-actions">
+                        <button onclick="importJsonLocations()" class="save-btn">Import</button>
+                        <button type="button" onclick="clearJsonFile()" class="clear-btn">Clear</button>
+                    </div>
+
+
+                    <!-- LOCATION LIST -->
+                    <hr class="card-seperator">
+                    <h2>Locations List</h2>
+
+                    <input type="text" id="locationSearch" class="search-input" placeholder="Search locations..."
+                        oninput="filterLocations()" />
+
+                    <div class="table-container">
+                        <div id="locationTable"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- CATEGORY MANAGEMENT SECTION -->
+                <section id="manageCategorySection" class="card" style="display:none;">
+
+                    <div class="">
+
+                        <h3>Add New Category</h3>
+                        <div class="form-row">
+                            <input id="newCategoryName" placeholder="New Category Name">
+
+
+                        </div>
+
+                        <div class="form-actions">
+                            <button id="add-cat" onclick="addCategory()">Add Category</button>
+                        </div>
+
+                        <hr class="card-seperator">
+
+                        <h3>Import Categories from JSON</h3>
+
+                        <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">
+                            Upload a JSON file with an array of categories.
+                            <a href="../assets/data/sample-categories.json" target="_blank"
+                                style="color: #2563eb; text-decoration: none;">View sample format</a>
+                        </p>
+
+                        <div>
+                            <input class="file_input" type="file" id="jsonCategoryFile" accept=".json"
+                                placeholder="Select JSON file">
+                        </div>
+
+                        <div class="form-actions">
+                            <button onclick="importJsonCategories()" class="save-btn">Import</button>
+                            <button type="button" onclick="clearJsonCategoryFile()" class="clear-btn">Clear</button>
+                        </div>
+
+                        <hr class="card-seperator">
+
+                        <h3>Category List</h3>
+                        <input type="text" id="categorySearch" class="search-input" placeholder="Search categories..."
+                            oninput="filterCategories()" />
+                        <div class="table-container">
+                            <div id="categoryTable"></div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGOUT CONFIRMATION MODAL -->
+    <div id="logoutModal" class="logout-modal">
+
+        <div class="logout-box">
+
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+
+            <div class="logout-actions">
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+                <button onclick="confirmLogout()" class="logout-btn">Yes</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div id="deleteModal" class="delete-modal">
+
+        <div class="delete-box">
+
+            <h3 id="deleteTitle">Confirm Delete</h3>
+            <p id="deleteMessage">Are you sure you want to delete this location?</p>
+
+            <div class="delete-actions">
+                <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+                <button class="delete-btn" onclick="confirmDelete()">Delete</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../assets/js/dashboard.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadCategories();
+            loadLocations();
+            showLocations();
+        });
+    </script>
+
+</body>
+
+</html>

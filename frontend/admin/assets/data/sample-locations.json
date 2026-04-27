@@ -1,0 +1,21 @@
+
+[
+    {
+    "name": "Mall of Asia",
+    "latitude": 40.885091,
+    "longitude": -72.968285,
+    "category_id": 28,
+    "description": "One of the largest shopping malls in the world, offering a wide range of retail stores, dining options, and entertainment facilities.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Mall_of_Asia.jpg/2560px-Mall_of_Asia.jpg",
+    "created_at": "2024-06-01T12:00:00Z"
+  },
+  {
+    "name": "Statue of Unity",
+    "latitude": 42.689247,
+    "longitude": -71.044502,
+    "category_id": 12,
+    "description": "The world's tallest statue, located in India, dedicated to Sardar Vallabhbhai Patel, a key figure in India's independence movement.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Statue_of_Unity_2018.jpg/2560px-Statue_of_Unity_2018.jpg",
+    "created_at": "2024-06-01T12:00:00Z"
+  }
+]

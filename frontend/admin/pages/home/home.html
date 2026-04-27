@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="../../assets/css/home.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+        <div class="main-area">
+
+            <header class="admin-header">
+                <h1>Home Dashboard</h1>
+                <button onclick="openLogoutModal()" class="logout-btn">Logout</button>
+            </header>
+
+            <div class="content-wrapper">
+
+                <!-- 1. Welcome Card -->
+                <div id="welcomeBox" class="welcome-banner card"></div>
+
+                <!-- 2. Dashboard Control -->
+                <div class="card section-card">
+                    <div class="section-header">
+                        <h2>Dashboard Control</h2>
+                        <p>Main location data management</p>
+                    </div>
+
+                    <div id="dashboardControl">
+                        <button onclick="goToDashboard()" class="primary-cta">Open Dashboard</button>
+                    </div>
+                </div>
+
+                <!-- 3. Super Admin Control -->
+                <div id="superAdminPanel" class="card section-card" style="display:none;">
+                    <div class="section-header">
+                        <h2>Super Admin Controls</h2>
+                        <p>User management and account overview</p>
+                    </div>
+
+                    <div id="superAdminStats" class="superadmin-grid"></div>
+
+                    <div class="superadmin-actions">
+                        <button onclick="goToUserManagement()" class="primary-cta">Manage Users</button>
+                    </div>
+                </div>
+
+                <!-- 4. Overview -->
+                <div class="card section-card">
+                    <div class="section-header">
+                        <h2>Overview</h2>
+                        <p>Key platform statistics</p>
+                    </div>
+
+                    <div id="statsContainer" class="dashboard-grid"></div>
+                </div>
+
+                <!-- 5. Top Categories -->
+                <div class="card section-card">
+                    <div class="section-header">
+                        <h2>Top Categories</h2>
+                        <p>Distribution by most used categories</p>
+                    </div>
+
+                    <div id="categoryBreakdown" class="category-grid"></div>
+                </div>
+
+                <!-- 6. Recent Locations -->
+                <div id="recentLocations" class="card section-card">
+                    <div class="section-header">
+                        <h2>Recent Locations Added</h2>
+                        <p>Latest locations in the system</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGOUT CONFIRMATION MODAL -->
+    <div id="logoutModal" class="logout-modal">
+        <div class="logout-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+
+            <div class="logout-actions">
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+                <button onclick="confirmLogout()" class="logout-btn">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/home.js"></script>
+</body>
+
+</html>

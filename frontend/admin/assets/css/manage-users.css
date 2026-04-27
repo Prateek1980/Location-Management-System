@@ -1,0 +1,440 @@
+/* =========================================================
+   MANAGE USERS - CLEAN PROFESSIONAL UI
+========================================================= */
+
+/* ================================
+   ROOT VARIABLES
+================================ */
+:root {
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --surface-soft: #f9fafb;
+    --border: #e5e7eb;
+
+    --text: #111827;
+    --text-muted: #6b7280;
+    --text-light: #9ca3af;
+
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+
+    --success: #16a34a;
+    --success-hover: #15803d;
+
+    --warning: #f59e0b;
+    --warning-hover: #d97706;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04);
+    --shadow-md: 0 6px 20px rgba(16, 24, 40, 0.06);
+
+    --transition: all 0.2s ease;
+}
+
+/* ================================
+   GLOBAL RESET
+================================ */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: var(--text);
+    font-weight: 600;
+}
+
+p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+/* ================================
+   MAIN LAYOUT
+================================ */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.content-wrapper {
+    padding: 28px 40px;
+    max-width: 1650px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ================================
+   HEADER
+================================ */
+.admin-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* ================================
+   CARD SYSTEM
+================================ */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ================================
+   BUTTON SYSTEM
+================================ */
+.back-to-home,
+.cancel-btn,
+.delete-btn,
+.action-btn {
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Back button */
+.back-to-home {
+    background: var(--primary);
+    color: white;
+}
+
+.back-to-home:hover {
+    background: var(--primary-hover);
+}
+
+/* Modal buttons */
+.cancel-btn {
+    background: #f3f4f6;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.cancel-btn:hover {
+    background: #e5e7eb;
+}
+
+.delete-btn {
+    background: var(--danger);
+    color: white;
+}
+
+.delete-btn:hover {
+    background: var(--danger-hover);
+}
+
+/* Table action buttons */
+.action-btn {
+    background: #eef2ff;
+    color: var(--primary);
+    border: 1px solid #dbeafe;
+    padding: 8px 12px;
+    min-width: 90px;
+}
+
+.action-btn:hover {
+    background: #dbeafe;
+}
+
+.action-btn.delete {
+    background: #fef2f2;
+    color: var(--danger);
+    border: 1px solid #fecaca;
+}
+
+.action-btn.delete:hover {
+    background: #fee2e2;
+}
+
+.action-btn.activate {
+    background: #f0fdf4;
+    color: var(--success);
+    border: 1px solid #bbf7d0;
+}
+
+.action-btn.activate:hover {
+    background: #dcfce7;
+}
+
+/* Disabled state for action buttons */
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-btn:disabled:hover {
+    background: inherit;
+}
+
+/* ================================
+   SEARCH INPUT
+================================ */
+.search-input {
+    width: 100%;
+    max-width: 380px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #ffffff;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 22px;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* ================================
+   TABLE WRAPPER
+================================ */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #ffffff;
+}
+
+/* ================================
+   TABLE STYLING
+================================ */
+.admin-table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.admin-table thead th {
+    text-align: left;
+    background: #f9fafb;
+    color: var(--text);
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.admin-table tbody td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+    background: #fafafa;
+}
+
+/* Make important values darker */
+.admin-table td strong,
+.admin-table td:first-child,
+.admin-table td:nth-child(2) {
+    color: var(--text);
+}
+
+/* ================================
+   ACTION BUTTONS GROUP
+================================ */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ================================
+   MODAL SYSTEM
+================================ */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 380px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.modal-content p {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+/* ================================
+   EMPTY / NO RESULTS SUPPORT
+================================ */
+.no-results {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .content-wrapper {
+        padding: 18px 16px;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .back-to-home,
+    .cancel-btn,
+    .delete-btn {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-wrap: nowrap;
+        min-width: max-content;
+    }
+
+    .action-btn {
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .table-container {
+        margin: 0 -4px;
+    }
+
+    .admin-table {
+        min-width: 720px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        padding: 14px 12px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .admin-header h1 {
+        font-size: 17px;
+    }
+}
